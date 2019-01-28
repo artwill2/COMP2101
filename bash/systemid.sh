@@ -27,5 +27,5 @@ LAN Address   : $(ip a s enp0s3|grep 'inet '|awk '{print $2}'|sed 's,/.*,,')
 LAN Name      : $(getent hosts `ip a s enp0s3|grep 'inet '|awk '{print $2}'|sed 's,/.*,,'` | awk '{print $2}')
 External IP   : $(curl -s icanhazip.com)
 External Name : $(getent hosts `curl -s icanhazip.com` | awk '{print $2}')
-Router        : $
+Router        : $(ip route|grep 'default'| awk '{print $3}')
 "
