@@ -63,9 +63,9 @@ echo "=========================="
 #   then uses 'awk' to print out the filename and type only, to keep the output clean
 # TASK 9: Modify the grep to find both JPEG and PNG files
 echo "=========PNG files========"
-#find ~ -type f -exec file {} \; |
-#    grep  ": PNG\|: JPEG" |
-#    awk '{print $1, $2}'
+find ~ -type f -exec file {} \; |
+    grep  ": PNG\|: JPEG" |
+    awk '{print $1, $2}'
 echo "=========================="
 
 # this script block finds the setuid files on the system
@@ -75,6 +75,5 @@ echo "Setuid files:"
 echo "=========================="
 find /bin /usr/bin -type f -executable -perm -4000 -ls | sort -k 5
 echo "===sorted by group ownership==="
-find /bin /usr/bin -type f -executable -perm -4000 -ls #| sort -k 6
-
+find /bin /usr/bin -type f -executable -perm -2000 -ls | sort -k 5
 echo "=========================="
