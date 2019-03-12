@@ -1,0 +1,1 @@
+﻿$env:Path = "$env:path;c:/users/matt/scripts"
